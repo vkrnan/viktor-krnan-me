@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    {% load static %}
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>{{ About_first.name }} - Personal site</title>
+	<meta name="description" content="Personal site">
+	<meta name="author" content="Viktor Krňan">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="{% static '/css/default.css' %}">
+   <link rel="stylesheet" href="{% static '/css/layout.css' %}">
+   <link rel="stylesheet" href="{% static '/css/media-queries.css' %}">
+   <link rel="stylesheet" href="{% static '/css/magnific-popup.css' %}">
+   <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+
+   <!-- Script
+   ================================================== -->
+	<script src="{% static "/js/modernizr.js" %}"></script>
+	<script src="{% static "/js/fading.js" %}"></script>
+
+
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+
+</head>
+
+<body>
+
+<style>
+header {background-image:url("{% static 'images/background.jpg' %}")}
+</style>
+
+   <!-- Navigation top menu
+   ================================================== -->
+
+      <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+         <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+	        <li><a class="smoothscroll" href="#skills">Skills</a></li>
+	        <li><a class="smoothscroll" href="#certifications">Certifications</a></li>
+	        <li><a class="smoothscroll" href="#employments">Employments</a></li>
+            <li><a class="smoothscroll" href="#education">Education</a></li>
+            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
+            <li><a class="smoothscroll" href="#contact">Contact</a></li>
+         </ul> <!-- end #nav -->
+
+      </nav> <!-- end #nav-wrap -->
+
+   <!-- Header
+   ================================================== -->
+
+   <header id="home">
+
+      <div class="row banner">
+         <div class="row add-bottom">
+   <!-- Profile picture
+   -------------------------------------------------- -->
+            <div class="three columns">
+                <img class="profile-pic"  src="{{ About_first.image.url }}" alt="" />
+            </div>
+            <div class="nine columns banner-text add-bottom">
+               <div class="row add-bottom">
+                   <h1 class="responsive-headline">Hello,</h1>
+                   <h1 class="responsive-headline">I'm {{ About_first.name }}.</h1>
+                </div>
+            </div>
+
+        </div>
+
+    {% for Introduction in Introductions %}
+        <div class="row add-bottom banner-text">
+            <h3><span>{{ Introduction.text }}</span></h3>
+        </div>
+    {% endfor %}
+
+        <div class="row add-bottom">
+                <ul class="social">
+	            <!-- Social buttons --->
+                {% include 'html_common/socials.html' %}
+	            {% block social %}
+	            {% endblock social %}
+                </ul>
+        </div>
+      </div>
+        </div>
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#skills"><i class="icon-down-circle"></i></a>
+      </p>
+
+   </header>
+   <!-- Header End -->
+
+    <!-- Skills
+    ================================================== -->
+    {% include 'html_core/skillset.html' %}
+    {% block skillset %}
+    {% endblock skillset %}
+
+    <!-- Certifications
+    ================================================== -->
+    {% include 'html_core/certifications.html' %}
+    {% block certifications %}
+    {% endblock certifications %}
+
+    <!-- Work
+    ================================================== -->
+    {% include 'html_core/employments.html' %}
+    {% block employments %}
+    {% endblock employments %}
+
+   <!-- Education Section
+   ================================================== -->
+    {% include 'html_core/education.html' %}
+    {% block education %}
+    {% endblock education %}
+
+   <!-- Quotes Section
+   ================================================== -->
+   {% include 'html_core/quotes.html' %}
+   {% block quotes %}
+   {% endblock quotes %}
+
+    <!-- Portfolio Section
+    ================================================== -->
+    {% include 'html_core/portfolio.html' %}
+    {% block portfolio %}
+    {% endblock portfolio %}
+
+   <!-- Call-To-Action Section
+   ================================================== -->
+   <section id="call-to-action">
+
+      <div class="row">
+
+         <div class="two columns header-col">
+
+            <h1><span>Get Hosting.</span></h1>
+
+         </div>
+
+         <div class="seven columns">
+
+            <h2><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Host This Template on Dreamhost.</a></h2>
+            <p>Looking for an awesome and reliable webhosting? Try <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span>DreamHost</span></a>.
+					Get <span>$50 off</span> when you sign up with the promocode <span>STYLESHOUT</span>.
+					<!-- Simply type	the promocode in the box labeled “Promo Code” when placing your order. --></p>
+
+         </div>
+
+         <div class="three columns action">
+
+            <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT" class="button">Sign Up Now</a>
+
+         </div>
+
+      </div>
+
+   </section> <!-- Call-To-Action Section End-->
+
+
+   <!-- Testimonials Section
+   ================================================== -->
+   {% include 'html_core/testimonials.html' %}
+   {% block testimonials %}
+   {% endblock testimonials %}
+
+   <!-- Contact Section
+   ================================================== -->
+   {% block contact %}
+   {% endblock contact %}
+
+   <!-- footer
+   ================================================== -->
+   {% include 'footer.html' %}
+   {% block footer %}
+   {% endblock footer %}
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src={% static '/js/jquery-1.10.2.min.js' %}><\/script>')</script>
+   <script type="text/javascript" src={% static '/js/jquery-migrate-1.2.1.min.js' %}></script>
+
+   <script src={% static '/js/jquery.flexslider.js' %}></script>
+   <script src={% static '/js/waypoints.js' %}></script>
+   <script src={% static '/js/jquery.fittext.js' %}></script>
+   <script src={% static '/js/magnific-popup.js' %}></script>
+   <script src={% static '/js/init.js' %}></script>
+
+</body>
+</html>

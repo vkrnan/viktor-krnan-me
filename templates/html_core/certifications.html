@@ -1,0 +1,56 @@
+    {% block certifications %}
+    {% load static %}
+    <section id="certifications">
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom">
+         <div class="three columns header-col">
+            <h1><span><dt>Certifications</dt></span></h1>
+         </div>
+        <hr>
+    {% for Certification in Certifications %}
+    <div class="row add-bottom"></div>
+         <div class="nine columns header-col">
+                <h3 class="add-bottom">{{ Certification.name }}</h3>
+                <dl>
+                    <dd>  {{ Certification.desc }}  </dd>
+                </dl>
+         </div> <!-- main-col end -->
+
+            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
+                 <div class="columns portfolio-item">
+                    <div class="item-wrap">
+
+                     <a href="#modal-{{ Certification.id }}" title="viem ja ?">
+                        <img alt="" src="{% get_media_prefix %}/{{ Certification.image }}">
+                        <div class="overlay">
+                            <div class="portfolio-item-meta">
+				                <h5>{{ Certification.name }}</h5>
+                                <p>{{ Certification.desc }}</p>
+          			        </div>
+                        </div>
+                        <div class="link-icon"><i class="icon-plus"></i></div>
+                     </a>
+
+                    </div>
+                  </div> <!-- item end -->
+            </div>
+    <!-- Modal Popup / CERTIFICATION
+    --------------------------------------------------------------- -->
+         <div id="modal-{{ Certification.id }}" class="popup-modal mfp-hide">
+             <img class="scale-with-grid" src="{% get_media_prefix %}/{{ Certification.image }}" alt="" />
+             <div class="description-box">
+                 <h4>{{Certification.name}}</h4>
+                 <p>{{Certification.desc}}</p>
+                 <span class="categories"><i class="fa fa-tag"></i>asdf</span>
+             </div>
+             <div class="link-box">
+                <a href="{% get_media_prefix %}/{{Certification.file}}">Download</a>
+	            <a class="popup-modal-dismiss">Close</a>
+             </div>
+	      </div><!-- modal End -->
+    {% endfor %}
+    </div>
+    </section> <!-- Resume Section End-->
+    {% endblock certifications %}

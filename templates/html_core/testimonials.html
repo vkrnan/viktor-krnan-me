@@ -1,0 +1,39 @@
+   {% block testimonials %}
+    {% load static %}
+   <section id="testimonials">
+
+      <div class="text-container">
+
+         <div class="row">
+
+            <div class="two columns header-col">
+
+               <h1><span>Client Testimonials</span></h1>
+
+            </div>
+
+            <div class="ten columns flex-container">
+
+               <div class="flexslider">
+
+                  <ul class="slides">
+    {% for Testimonial in Testimonials %}
+                     <li>
+                        <blockquote>
+                           <p>{{Testimonial.quote}}</p>
+                           <cite>{{Testimonial.autor}}</cite>
+                        </blockquote>
+                     </li> <!-- slide ends -->
+    {% endfor %}
+                  </ul>
+
+               </div> <!-- div.flexslider ends -->
+
+            </div> <!-- div.flex-container ends -->
+
+         </div> <!-- row ends -->
+
+       </div>  <!-- text-container ends -->
+
+   </section> <!-- Testimonials Section End-->
+   {% endblock testimonials %}

@@ -1,0 +1,39 @@
+    {% block skillset %}
+    {% load static %}
+    <section id="skills">
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+    <div class="row remove-bottom">
+         <div class="three columns header-col remove-bottom">
+            <h1><span><dt>Skills</dt></span></h1>
+         </div>
+        <hr>
+    </div>
+    {% for Skill_Set in Skill_Sets %}
+    <div class="row item remove-bottom">
+        <div class="three columns header-col remove-bottom">
+            <h2 class="">{{ Skill_Set.name }}</h2>
+        </div>
+    </div>
+        {% for Skill in Skills %}
+        {% if Skill_Set.id == Skill.set_id %}
+        <div class="row item add-bottom">
+            <div class="three columns header-col remove-bottom"></div>
+            <div class="nine columns header-col remove-bottom">
+                <h5><dt>{{Skill.name}}</dt></h5>
+                 <h6><dl><hr>
+                {% for Skill_Desc in Skill_Descs %}
+                {% if Skill_Desc.skill_id == Skill.id %}
+                <dt>  {{Skill_Desc.shortdesc}}  </dt>
+                <dd>  {{Skill_Desc.longdesc}}  </dd>
+                {% endif %}
+                {% endfor %}
+                 </dl></h6>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    {% endfor %}
+    </section>
+    {% endblock skillset %}

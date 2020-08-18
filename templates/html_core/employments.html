@@ -1,0 +1,24 @@
+    {% block employments %}
+    {% load static %}
+    <section id="employments">
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+       <div class="row add-bottom">
+         <div class="three columns header-col">
+            <h1><span><dt>Employments</dt></span></h1>
+         </div>
+        <hr>
+        </div>
+    {% for Employment in Employments %}
+            <div class="row item add-bottom">
+               <div class="twelve columns add-bottom">
+                   <h3><dt>{{ Employment.name }}</dt></h3><hr>
+                   <h6>{{ Employment.adress }}</h6>
+                   <h6>{{ Employment.desc }}</h6>
+                   <h6>{{ Employment.start }} - {{ Employment.end }}</h6>
+               </div>
+            </div>
+    {% endfor %}
+    </section>
+    {% endblock employments %}

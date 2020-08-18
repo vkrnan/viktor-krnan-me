@@ -1,0 +1,24 @@
+    {% block education %}
+    {% load static %}
+    <section id="education">
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+    <div class="row add-bottom"></div>
+       <div class="row add-bottom">
+         <div class="three columns header-col">
+            <h1><span><dt>Education</dt></span></h1>
+         </div>
+        <hr>
+        </div>
+    {% for Education in Educations %}
+            <div class="row item add-bottom">
+               <div class="twelve columns add-bottom">
+                   <h3><dt>{{ Education.name }}</dt></h3><hr>
+                   <h6>{{ Education.adress }}</h6>
+                   <h6>{{ Education.desc }}</h6>
+                   <h6>{{ Education.start }} - {{ Education.end }}</h6>
+               </div>
+            </div>
+    {% endfor %}
+    </section>
+    {% endblock education %}

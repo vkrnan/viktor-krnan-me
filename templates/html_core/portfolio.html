@@ -1,0 +1,65 @@
+    {% block portfolio %}
+       <section id="portfolio">
+
+      <div class="row">
+
+         <div class="twelve columns collapsed">
+
+            <h1>Check Out Some of My Works.</h1>
+
+            <!-- portfolio-wrapper -->
+            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
+
+         {% for portfolio in portfolios %}
+
+          	   <div class="columns portfolio-item">
+                  <div class="item-wrap">
+
+                     <a href="#modal-{{ portfolio.id }}" title="">
+                        <img alt="" src="{{ portfolio.Thumb.url }}">
+                        <div class="overlay">
+                           <div class="portfolio-item-meta">
+				<h5>{{ portfolio.Name }}</h5>
+                              <p>{{ portfolio.shortDesc }}</p>
+          			</div>
+                        </div>
+                        <div class="link-icon"><i class="icon-plus"></i></div>
+                     </a>
+
+                  </div>
+          		</div> <!-- item end -->
+
+        {% endfor %}
+
+            </div> <!-- portfolio-wrapper end -->
+         </div> <!-- twelve columns end -->
+
+    <!-- Modal Popup / PORTFOLIO
+    --------------------------------------------------------------- -->
+
+    {% for portfolio in portfolios %}
+
+         <div id="modal-{{ portfolio.id }}" class="popup-modal mfp-hide">
+
+		      <img class="scale-with-grid" src="{{ portfolio.Thumb.url }}" alt="" />
+
+		      <div class="description-box">
+			      <h4>{{ portfolio.Name }}</h4>
+			      <p>{{ portfolio.longDesc }}</p>
+               <span class="categories"><i class="fa fa-tag"></i>asdf</span>
+		      </div>
+
+            <div class="link-box">
+	{% if portfolio.Link != "" %}
+              <a href="{{ portfolio.Link }}">Details</a>
+	{% endif %}
+	         <a class="popup-modal-dismiss">Close</a>
+            </div>
+
+	      </div><!-- modal End -->
+
+    {% endfor %}
+
+      </div> <!-- row End -->
+   </section> <!-- Portfolio Section End-->
+    {% endblock portfolio %}

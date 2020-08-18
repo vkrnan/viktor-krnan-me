@@ -1,0 +1,28 @@
+	{% block social %}
+	{% for link in socials %}
+	{{ social.htmlString |safe}}
+	{% endfor %}
+		<ul class="social-links">
+			<li><a href="http://www.facebook.com/viktor.krnan"><i class="fa fa-facebook-square"></i></a></li>
+			<li><a href="https://www.youtube.com/channel/UCTFIY_AF_Ff0Yx48KcFRLaA"><i class="fa fa-youtube-square"></i></a></li>
+			<li><a href="https://sk.linkedin.com/in/viktorkrnan"><i class="fa fa-linkedin-square"></i></a></li>
+			<li><a href="https://www.google.com/+ViktorKr%C5%88an"><i class="fa fa-google-plus-square"></i></a></li>
+			<li><a href="#"><i class="fa fa-vk"></i></a></li>
+    <!--
+        	   <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+               <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+               <li><a href="#"><i class="fa fa-skype"></i></a></li>
+               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+        	   <li><a href="#"><i class="fa fa-apple"></i></a></li>
+        	   <li><a href="#"><i class="fa fa-windows"></i></a></li>
+        	   <li><a href="#"><i class="fa fa-android"></i></a></li>
+        	   <li><a href="#"><i class="fa fa-linux"></i></a></li>
+   	-->
+		</ul>
+		<ul class="social-links">
+			<li><a href="#"><i class="fa fa-github-square"></i></a></li>
+			<li><a href="#"><i class="fa fa-stack-overflow"></i></a></li>
+			<li><a href="#"><i class="fa fa-bitcoin"></i></a></li>
+		</ul>
+	{% endblock social %}
