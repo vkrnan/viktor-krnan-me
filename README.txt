@@ -1,5 +1,5 @@
-# for demendency management use pipdeptree
+# for dependency management use pipdeptree
 # TO INSTALL DEPENDENCIES
-pipdeptree requirements.txt
+pip install -r requirements.txt
 # TO UPDATE LIST
-pipdeptree > requirements.txt
+pip freeze > requirements.txt
