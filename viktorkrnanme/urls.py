@@ -24,6 +24,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('cookie_read/', views.cookie_read),
+    path('cookie_write/<cookie_val>/', views.cookie_write),
+    path('get_info/', views.get_info),
 #    path('about/', include('about.urls')),
 #    path()
 ]

@@ -72,16 +72,13 @@ header {background-image:url("{% static 'images/background.jpg' %}")}
          <div class="row add-bottom">
    <!-- Profile picture
    -------------------------------------------------- -->
-            <div class="three columns">
+             <div class="row banner-text add-bottom">
+                   <h1>Hello,</h1>
+                   <h1>I'm {{ About_first.name }}.</h1>
+             </div>
+            <div class="row add-bottom">
                 <img class="profile-pic"  src="{{ About_first.image.url }}" alt="" />
             </div>
-            <div class="nine columns banner-text add-bottom">
-               <div class="row add-bottom">
-                   <h1 class="responsive-headline">Hello,</h1>
-                   <h1 class="responsive-headline">I'm {{ About_first.name }}.</h1>
-                </div>
-            </div>
-
         </div>
 
     {% for Introduction in Introductions %}
@@ -139,7 +136,6 @@ header {background-image:url("{% static 'images/background.jpg' %}")}
 
     <!-- Portfolio Section
     ================================================== -->
-    {% include 'html_core/portfolio.html' %}
     {% block portfolio %}
     {% endblock portfolio %}
 

@@ -5,6 +5,8 @@ from app_core.models import Employment, EmploymentPosition
 from app_core.models import Skill, Skill_Set, Skill_Desc
 from app_core.models import Quote, Testimonial
 
+import logging
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -34,3 +36,25 @@ def index(request):
         'Testimonials': Testimonials,
     }
     return render(request, 'index.html', context)
+
+# initialize logger to get logging and console output
+logger = logging.getLogger(__name__)
+
+def cookie_read(request):
+    logger.error(request.COOKIES.get('TEST'))
+    respo = HttpResponse(request.COOKIES.get('TEST'))
+    return respo
+
+def cookie_write(request, cookie_val):
+    respo = HttpResponse('Cookie set!')
+    respo.set_cookie('TEST', cookie_val)
+    return respo
+
+def get_info(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    logger.error(ip)
+    return HttpResponse('Done!')
