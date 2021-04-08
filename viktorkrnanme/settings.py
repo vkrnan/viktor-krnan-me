@@ -28,9 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '0.0.0.0',
+    'viktor.krnan.me',
     'www.krnan.me',
     'krnan.me',
     '212.47.237.1',
+    'localhost',
 ]
 
 
